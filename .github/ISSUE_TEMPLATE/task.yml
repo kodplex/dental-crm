@@ -1,0 +1,39 @@
+name: Task
+description: A specific, well-scoped development task (not a bug or new feature)
+title: "chore: "
+labels: ["type: chore", "status: todo"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for: refactors, dependency upgrades, CI improvements, test additions, documentation updates.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What needs to be done?
+      description: Describe the task clearly. Include the "why" — why is this task worth doing now?
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Done when...
+      placeholder: |
+        - [ ] Dependency upgraded from X to Y
+        - [ ] No new TypeScript errors
+        - [ ] CI passes
+        - [ ] Changelog updated
+    validations:
+      required: true
+
+  - type: dropdown
+    id: size
+    attributes:
+      label: Estimated size
+      options:
+        - "XS — < 2 hours"
+        - "S — 2-4 hours"
+        - "M — ~1 day"
+        - "L — 2-3 days"

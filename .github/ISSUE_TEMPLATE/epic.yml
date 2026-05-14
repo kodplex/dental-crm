@@ -1,0 +1,53 @@
+name: Epic
+description: A large body of work spanning multiple issues and potentially multiple releases
+title: "epic: "
+labels: ["type: epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        An epic is a container for related issues. It should not be directly assigned to a developer.
+        Break it down into individual issues before starting work.
+
+  - type: input
+    id: prd_reference
+    attributes:
+      label: PRD Reference
+      placeholder: "F-002 — Patient Management"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Epic description
+      description: What is the end state when this epic is complete?
+    validations:
+      required: true
+
+  - type: textarea
+    id: child_issues
+    attributes:
+      label: Child issues
+      description: List the individual issues that make up this epic (update as you decompose)
+      placeholder: |
+        - [ ] #4 Patient list and search
+        - [ ] #12 Patient create form
+        - [ ] #13 Patient edit form
+        - [ ] #14 Patient archive flow
+        - [ ] #15 Document upload
+
+  - type: input
+    id: target_release
+    attributes:
+      label: Target release
+      placeholder: "v0.2.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: success_metrics
+    attributes:
+      label: Success metrics
+      description: How will we know the epic delivered value?
+      placeholder: "Front-desk staff can create a new patient record in under 90 seconds from the keyboard alone."

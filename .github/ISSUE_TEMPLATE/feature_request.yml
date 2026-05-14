@@ -1,0 +1,77 @@
+name: Feature Request
+description: Propose a new feature or improvement aligned with the PRD
+title: "feat: "
+labels: ["type: feature", "status: todo"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before filing a feature request
+        - Check [PRD.md](../blob/main/PRD.md) — the feature may already be planned
+        - Check open issues to avoid duplicates
+        
+  - type: input
+    id: prd_reference
+    attributes:
+      label: PRD Reference (if applicable)
+      description: Which PRD feature does this relate to? e.g. F-002
+      placeholder: "F-002"
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What user problem or business need does this address?
+      placeholder: "Front-desk staff cannot quickly see which patients are overdue for recall without manually checking each record."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: What should be built? Be specific about user-visible behaviour.
+      placeholder: |
+        On the Patients list, add a "Recall Overdue" filter tab. 
+        Patients are sorted by how many days overdue they are (most overdue first).
+        Each row shows the last recall date and a coloured badge (red = >30 days overdue, yellow = due soon).
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance criteria
+      description: How will we know this feature is complete? Write as checkboxes.
+      placeholder: |
+        - [ ] Filter tab "Recall Overdue" appears on Patients list
+        - [ ] Shows only patients with recall due date in the past
+        - [ ] Sorted by most overdue first
+        - [ ] Badge shows days overdue
+        - [ ] Respects clinic scoping (no cross-clinic data)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - "Critical — blocking a release or major user need"
+        - "High — current milestone"
+        - "Medium — next milestone"
+        - "Low — nice to have"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: size
+    attributes:
+      label: Estimated size
+      description: Rough estimate — can be refined when scoped
+      options:
+        - "XS — < 2 hours"
+        - "S — 2-4 hours"
+        - "M — ~1 day"
+        - "L — 2-3 days"
+        - "XL — break it up first"

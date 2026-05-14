@@ -1,0 +1,67 @@
+name: Bug Report
+description: Something is broken. Help us fix it.
+title: "fix: "
+labels: ["type: bug", "status: todo"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before filing a bug
+        - Search open issues to avoid duplicates
+        - Reproduce the bug on the latest version if possible
+        
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear description of the bug. What did you expect vs what actually happened?
+      placeholder: "When I click 'Save Patient', the page shows a blank white screen instead of saving and redirecting."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps to consistently reproduce the bug
+      placeholder: |
+        1. Go to Patients > New Patient
+        2. Fill in first name and last name only
+        3. Click Save
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      placeholder: Patient should be saved and I should be redirected to the patient profile page.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "Critical — data loss, security issue, or complete feature failure"
+        - "High — feature broken for all users"
+        - "Medium — feature degraded or workaround exists"
+        - "Low — minor issue, cosmetic"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version / environment
+      placeholder: "v0.1.0 / staging"
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Browser, OS, error messages from console, Sentry error ID if available
